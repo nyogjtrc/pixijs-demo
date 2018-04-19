@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import * as PIXI from 'pixi.js'
 
 import Hello from './component/Hello'
+import Jump from './component/Jump'
 
 let type = 'WebGL'
 if (!PIXI.utils.isWebGLSupported()) {
@@ -20,6 +21,7 @@ const App = () => (
     </div>
     <div className="wrap-content">
       <Hello />
+      <Jump />
     </div>
   </div>
 )
