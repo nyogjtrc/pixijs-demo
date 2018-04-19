@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -11,38 +10,17 @@ const config = {
     filename: '[name].bundle.js',
     publicPath: '/'
   },
-  //devtool: 'source-map',
-  //module: {
-    //rules: [
-      //{
-        //test: /\.css$/,
-        //use: ['style-loader', 'css-loader']
-      //},
-      //{
-        //test: /\.(js|jsx)$/,
-        //exclude: /node_modules/,
-        //loader: 'babel-loader'
-      //},
-      //{
-        //test: /\.(png|jpg|jpeg|gif|svg)$/,
-        //loader: 'file-loader'
-      //},
-      //{
-        //test: /\.(ttf|eot|svg|woff(2)?)$/,
-        //loader: 'file-loader'
-      //}
-    //]
-  //},
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
   plugins: [
-    //new webpack.DefinePlugin({
-      //'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    //}),
-    //new webpack.optimize.CommonsChunkPlugin({
-      //name: 'vendor',
-      //minChunks: module => (
-        //module.context && module.context.indexOf('node_modules') !== -1
-      //)
-    //}),
     new HtmlWebpackPlugin({ template: './src/index.html' })
   ],
   devServer: {
