@@ -22,7 +22,7 @@ graph.endFill()
 
 const sp = new PIXI.Sprite(graph.generateCanvasTexture())
 sp.anchor.set(0.5)
-sp.x = hh / 2
+sp.x = 50
 sp.y = floot
 sp.interactive = true
 sp.buttonMode = true
@@ -33,6 +33,7 @@ app.stage.addChild(sp)
 app.ticker.add((delta) => {
   if (speed !== 0) {
     sp.y += delta * speed
+    sp.x += delta
     speed += gravity
     if (sp.y > floot) {
       sp.y = floot
