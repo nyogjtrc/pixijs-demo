@@ -4,6 +4,7 @@ import * as PIXI from 'pixi.js'
 
 import Hello from './component/Hello'
 import Jump from './component/Jump'
+import Move from './component/Move'
 
 let type = 'WebGL'
 if (!PIXI.utils.isWebGLSupported()) {
@@ -55,6 +56,7 @@ const App = () => (
       <div style={contentStyle}>
         <Hello />
         <Jump />
+        <Move />
       </div>
     </div>
   </div>
