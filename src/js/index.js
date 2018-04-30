@@ -1,5 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom'
 import * as PIXI from 'pixi.js'
 
 import Hello from './component/Hello'
@@ -21,7 +27,7 @@ const mainStyle = {
 
 const headerStyle = {
   background: '#6666AA',
-  width: '100%',
+  width: '100 vw',
   padding: '0 10px'
 }
 
@@ -44,22 +50,38 @@ const contentStyle = {
   padding: '20px'
 }
 
+const Sidebar = () => (
+  <div style={sidebarStyle}>
+    <li>
+      <NavLink to="/">Hello</NavLink>
+    </li>
+    <li>
+      <NavLink to="/jump">Jump</NavLink>
+    </li>
+    <li>
+      <NavLink to="/move">Move</NavLink>
+    </li>
+  </div>
+)
+
 const App = () => (
+  <BrowserRouter>
   <div style={mainStyle}>
     <header style={headerStyle}>
       <h1>Demo</h1>
     </header>
     <div style={wrapStyle}>
-      <div style={sidebarStyle}>
-        <li>1</li>
-      </div>
+      <Sidebar />
       <div style={contentStyle}>
-        <Hello />
-        <Jump />
-        <Move />
+        <Switch>
+          <Route path="/jump" component={Jump} />
+          <Route path="/move" component={Move} />
+          <Route path="/" component={Hello} />
+        </Switch>
       </div>
     </div>
   </div>
+  </BrowserRouter>
 )
 
 ReactDOM.render(
